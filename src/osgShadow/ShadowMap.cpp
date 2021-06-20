@@ -35,6 +35,7 @@ using namespace osgShadow;
 // fragment shader
 //
 static const char fragmentShaderSource_noBaseTexture[] =
+    "#version 150\n"
     "uniform sampler2DShadow osgShadow_shadowTexture; \n"
     "uniform vec2 osgShadow_ambientBias; \n"
     "\n"
@@ -47,6 +48,7 @@ static const char fragmentShaderSource_noBaseTexture[] =
 // fragment shader
 //
 static const char fragmentShaderSource_withBaseTexture[] =
+    "#version 150\n"
     "uniform sampler2D osgShadow_baseTexture; \n"
     "uniform sampler2DShadow osgShadow_shadowTexture; \n"
     "uniform vec2 osgShadow_ambientBias; \n"
@@ -61,6 +63,7 @@ static const char fragmentShaderSource_withBaseTexture[] =
 // fragment shader
 //
 static const char fragmentShaderSource_debugHUD[] =
+    "#version 150\n"
     "uniform sampler2D osgShadow_shadowTexture; \n"
     " \n"
     "void main(void) \n"
