@@ -69,7 +69,7 @@ class ValueVisitor : public osg::ValueVisitor {
             if (_applyMatrix)  v = (_isNormal) ? (v * _m) - _origin : v * _m;
             _fout << v[0] << ' ' << v[1] << ' ' << v[2];
         }
-    
+
         //add Vec3dArray* vertex output to avoid inaccuracy
         virtual void apply(osg::Vec3d & inv)
         {
@@ -471,6 +471,9 @@ std::ostream& operator<<(std::ostream& fout, const OBJWriterNodeVisitor::OBJMate
 
     if(!mat.image.empty())
         fout << "       " << "map_Kd " << mat.image << std::endl;
+
+    if (mat.diffuse[3] < (1.0 - 1e-6))
+        fout << "       " << "d " << mat.diffuse[3] << std::endl;
 
     return fout;
 
